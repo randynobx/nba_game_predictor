@@ -8,6 +8,9 @@ pandas = "*"
 sklearn = "*"
 numpy = "*"
 category-encoders = "*"
+flask = "*"
+matplotlib = "*"
+flask-wtf = "*"
 
 [dev-packages]
 ipykernel = "*"

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>{% block title %}{% endblock %}</title>
+
+    <!-- CSS files -->
+    {% block css %}{% endblock %}
+</head>
+
+<body>
+    <div class="container theme-showcase">
+        <div class="header">
+            <h1>Basketball Game Predictor</h1>
+            <ul class="navigation">
+                <li><a type="button" href="{{ url_for('main.predict') }}">Predict</a></li>
+                <li><a type="button" href="{{ url_for('main.about') }}">How it works</a></li>
+            </ul>
+        </div>
+
+        {% block body %}{% endblock %}
+    </div>
+</body>
+
+</html>
