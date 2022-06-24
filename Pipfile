@@ -9,6 +9,7 @@ sklearn = "*"
 numpy = "*"
 flask = "*"
 matplotlib = "*"
+xgboost = "*"
 
 [dev-packages]
 ipykernel = "*"
