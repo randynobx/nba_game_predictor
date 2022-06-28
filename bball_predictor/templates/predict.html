@@ -7,7 +7,7 @@
 {% endblock %}
 
 {% block body %}
-<p>
+<p class="desc">
     Input the boxscore data from a basketball game and hit the button to predict the winner!
 </p>
 <div class="ingest">
@@ -21,9 +21,9 @@
                 <th>3PM</th>
                 <th>FTM</th>
                 <th>FTA</th>
-                <th>Total Rebounds</th>
-                <th>Offensive Rebounds</th>
-                <th>Turnovers</th>
+                <th>TRB</th>
+                <th>ORB</th>
+                <th>TOV</th>
             </tr>
             <tr>
                 <th>Home</th>
@@ -48,18 +48,23 @@
                 <td><input type="number" step="any" min="0" required="true" id="a_tov" name="a_tov"></td>
             </tr>
         </table>
-        <button type="submit">Predict</button>
     </form>
-
-
 </div>
 
+<button type="submit" form="boxscore">Predict</button>
+
 <div class="output">
-    {% if predicted %}
-    Predicted Winner: {{ predicted }}
-    <br />
-    Probability: {{ proba }}
-    {% endif %}
+    <table>
+        <tr>
+            <td>Predicted Winner:</td>
+            <td>{% if predicted %}{{ predicted }}{% endif %}</td>
+        </tr>
+        <tr>
+            <td>Probability:</td>
+            <td>{% if predicted %}{{ proba }}{% endif %}</td>
+        </tr>
+    </table>
+
 </div>
 
 {% endblock %}
