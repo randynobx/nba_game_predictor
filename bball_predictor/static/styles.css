@@ -1,7 +1,6 @@
 .container {
     width: 80%;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto;
 }
 
 .header {
@@ -25,32 +24,40 @@ ul.navigation > li {
     list-style: none;
 }
 
+.navigation a {
+    text-decoration: none;
+}
+
 .ingest {
     width: 45%;
     float:left;
-    border-style:solid;
-    border-color:rgb(255, 191, 0);
-    border-radius: 10px;
-    padding-top: 10px;
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-bottom: 10px;
 }
 
 .output {
     width:45%;
     float:right;
+}
+
+.section {
     border-style:solid;
     border-color:rgb(255, 191, 0);
     border-radius: 10px;
-    padding-top: 10px;
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-bottom: 10px;
+    padding: 10px;
+}
+
+.section.about {
+    padding-left:100px;
+    padding-right:100px;
 }
 
 p.desc {
     text-align: center;
+}
+
+div.title {
+    text-align: center;
+    font-weight: bold;
+    padding-bottom: 5px;
 }
 
 button {
@@ -60,6 +67,10 @@ button {
     margin-top: 20px;
     margin-left: 1%;
     position:relative;
+}
+
+.ingest table {
+    margin: 0 auto;
 }
 
 table input {
