@@ -1,0 +1,78 @@
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.header {
+    background-color: rgb(255, 191, 0);
+    text-align: center;
+    border-radius: 10px;
+}
+
+h1,h2 {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center;
+}
+
+ul.navigation > li {
+    display: inline-block;
+    padding: 10px;
+}
+
+.navigation li {
+    font-family:sans-serif;
+    list-style: none;
+}
+
+.navigation a {
+    text-decoration: none;
+}
+
+.ingest {
+    width: 45%;
+    float:left;
+}
+
+.output {
+    width:45%;
+    float:right;
+}
+
+.section {
+    border-style:solid;
+    border-color:rgb(255, 191, 0);
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.section.about {
+    padding-left:100px;
+    padding-right:100px;
+}
+
+p.desc {
+    text-align: center;
+}
+
+div.title {
+    text-align: center;
+    font-weight: bold;
+    padding-bottom: 5px;
+}
+
+button {
+    font-size:large;
+    background-color:rgb(255, 191, 0);
+    border-radius: 10px;
+    margin-top: 20px;
+    margin-left: 1%;
+    position:relative;
+}
+
+.ingest table {
+    margin: 0 auto;
+}
+
+table input {
+    width: 50px;
+}
