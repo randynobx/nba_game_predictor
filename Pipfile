@@ -10,6 +10,7 @@ numpy = "*"
 flask = "*"
 matplotlib = "*"
 xgboost = "*"
+pytest = "*"
 
 [dev-packages]
 ipykernel = "*"

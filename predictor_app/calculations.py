@@ -3,7 +3,7 @@
 import pickle as pk
 import pandas as pd
 
-def calc_fourfactors(df):
+def calc_fourfactors(df: dict) -> dict:
     '''Calculate four factors for each team'''
     X = {}
     h_dreb = df['h_trb'] - df['h_orb']
@@ -27,10 +27,10 @@ def calc_fourfactors(df):
 
     return X
 
-def predict_winner(X):
+def predict_winner(X: dict) -> tuple:
     '''Return winner of game and probability of expected result'''
     # load model
-    with open('predictor_app/model.pickle', 'rb') as f:
+    with open('model.pickle', 'rb') as f:
         model = pk.load(f)
     # predict
     X = pd.DataFrame(X, index=[0]).astype(float)
