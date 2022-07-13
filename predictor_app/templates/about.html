@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block title %}Basketball Game Predictor | How it works{% endblock %}
+{% block title %}Basketball Game Predictor | About{% endblock %}
 
 {% block css %}{% endblock %}
 
@@ -8,15 +8,15 @@
 
 <p class="section about desc">
     At the end of the day, basketball may be 'about getting buckets', but there is a lot more that goes
-    on within the game that has significant impact on which team ends up getting those buckets. What Dean Oliver coined as the
-    'Four Factors' summerizes the most important parts of the game captured by the traditional box score. Each of
+    on within the game that has significant impact on which team ends up getting those buckets. What Dean Oliver coined
+    as the 'Four Factors' summerizes the most important parts of the game captured by the traditional box score. Each of
     these four composite statistics can be calculated for each team to directly compare how each team fared using
     percentages or rates.
 </p>
 
 <div class="section about">
 
-    <h2>The Four Factors</h2>
+    <h2>The Four Factors</h2>ß
 
     <p>
         <b>Effective Field Goal Percentage (EFG%)</b><br />
@@ -42,9 +42,54 @@
         <b>Free Throw Rate (FTR).</b><br />
         Formula: FTR = FreeThrowsMade / FieldGoalAttempts<br />
         Purpose: FTR is a measure of how often a team gets to the foul line. It is traditionally measured as
-        FreeThrowsMade
-        / FieldGoalAttempts or as FreeThrowAttempts / FieldGoalAttempts.
+        FreeThrowsMade / FieldGoalAttempts or as FreeThrowAttempts / FieldGoalAttempts.
+    </p>
+
+    <p>
         For detailed information on these metrics, see Dean Oliver's "Basketball on Paper".
+    </p>
+
+    <h2>Conclusions</h2>
+
+    <p>
+        While all essential to winning basketball games, not all four metrics are weighted evenly. When examining
+        feature and permutation importances in the models, I came to the same approximate weights that Dean Oliver
+        found, with the slight exception of Rebounding being weighted slightly less and Shooting slightly more.
+    <ol>
+        <li>Shooting (40%)</li>
+        <li>Turnovers (25%)</li>
+        <li>Rebounding (20%)</li>
+        <li>Free Throws (15%)</li>
+    </ol>
+    </p>
+
+    <p>
+        Home court advantage does not seem to be an independently relevant factor in the regular season games used for
+        modeling. It is possible that homecourt advantage shows in the improvement of other metics such as shooting or
+        free throw rate. Further examination of this question is beyond the scope of this project, and would make an
+        interestingß topic for future study.
+    </p>
+</div>
+
+<div class="section about">
+    <h2>The Model</h2>
+
+    <p>
+        This prediction app uses a tuned LogisticRegression model from the SciKit-Learn library.
+    </p>
+
+    <p>
+        Consideration was given to several types of classification models:
+
+        <ul>
+            <li>LogisticRegression (sklearn lib)</li>
+            <li>RidgeClassifier (sklearn lib)</li>
+            <li>RandomForestClassifier (sklearn lib)</li>
+            <li>XGBClassifier (XGBoost lib)</li>
+        </ul>
+
+        The LogisticRegression model had the highest base accuracy score of all models considered, and was selected
+        for further tuning.
     </p>
 </div>
 {% endblock %}

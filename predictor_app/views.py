@@ -1,4 +1,3 @@
-from xml.sax.handler import property_interning_dict
 from flask import Blueprint, redirect, render_template, request
 from .calculations import calc_fourfactors, predict_winner
 
