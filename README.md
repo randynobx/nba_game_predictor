@@ -75,10 +75,10 @@ You may now access the app in your web browser of choice at `localhost:5000`
 
 If you want to work with the notebook, or don't want to use Docker, you can use pipenv to create a virtualized local environment.
 
-First setup your environment with `pipenv`:
+First setup your environment with `pipenv`. Use the `--dev` flag if you are planning on using the notebook or test suite.
 
 ```bash
-% pipenv install
+% pipenv install --dev
 ```
 
 If you are only using the notebook, you are done!

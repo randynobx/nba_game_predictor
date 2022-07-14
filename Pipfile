@@ -8,12 +8,12 @@ pandas = "*"
 sklearn = "*"
 numpy = "*"
 flask = "*"
-matplotlib = "*"
-xgboost = "*"
-pytest = "*"
 
 [dev-packages]
 ipykernel = "*"
+matplotlib = "*"
+xgboost = "*"
+pytest = "*"
 
 [requires]
 python_version = "3.9"
