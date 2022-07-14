@@ -10,9 +10,9 @@ test_boxscore = {
 }
 
 test_fourfactors = {
-    'h_efg':0.581250, 'o_efg':0.455556, 'h_tov':0.162711,
-    'o_tov':0.079281, 'h_drb':0.666667, 'o_drb':0.761905,
-    'h_ftr':0.112500, 'o_ftr':0.300000
+    'h_efg':0.581250, 'a_efg':0.455556, 'h_tov':0.162711,
+    'a_tov':0.079281, 'h_drb':0.666667, 'a_drb':0.761905,
+    'h_ftr':0.112500, 'a_ftr':0.300000
 }
 
 class TestCalculation:

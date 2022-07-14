@@ -18,8 +18,8 @@ def calc_fourfactors(df: dict) -> dict:
     X['a_tov'] = df['a_tov'] / (df['a_fga'] + 0.44 * df['a_fta'] + df['h_tov'])
 
     # Rebounding : DRB / (Opp ORB + DRB)
-    X['h_drp'] = h_dreb / (df['a_orb'] + h_dreb)
-    X['a_drp'] = a_dreb / (df['h_orb'] + a_dreb)
+    X['h_drb'] = h_dreb / (df['a_orb'] + h_dreb)
+    X['a_drb'] = a_dreb / (df['h_orb'] + a_dreb)
 
     # Freethrows : FT / FGA
     X['h_ftr'] = df['h_ftm'] / df['h_fga']
