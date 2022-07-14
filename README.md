@@ -6,7 +6,9 @@ NBA Game Predictor uses the [Four Factors](https://www.nbastuffer.com/analytics1
 
 At the end of the day, basketball may be 'about getting buckets', but there is a lot more that goes on within the game that has significant impact on which team ends up getting those buckets. What Dean Oliver coined as the 'Four Factors' summerizes the most important parts of the game captured by the traditional box score. Each of these four composite statistics can be calculated for each team to directly compare how each team fared using percentages or rates.
 
-For instructions on how to use this project, please see the [Usage](#usage) section below.
+Using these four factors, I've created a simple prediction app using the SK-Learn library and Flask to predict the winner of a given NBA basketball game given its final boxscore (without points).
+
+For instructions on how to run this project on your machine, please see the [Usage](#usage) section below.
 
 ---
 
