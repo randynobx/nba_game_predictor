@@ -12,6 +12,16 @@ For instructions on how to run this project on your machine, please see the [Usa
 
 ---
 
+### Contents
+- [How it works](#how-it-works)
+- [Research Conclusions](#research-conclusions)
+- [Usage](#usage)
+    - [Makefile](#makefile)
+    - [Docker](#docker)
+    - [Pipenv](#pipenv)
+
+---
+
 ## How it works
 
 ### The Four Factors
@@ -53,7 +63,26 @@ For instructions on how to run this project on your machine, please see the [Usa
 
 There are two ways to run the code in this project: using Docker or with pipenv. Docker is the recommended way to run the app with minimal work and maximum compatibility. If you are interested in exploring `notebook.ipynb`, you should following the instructions for pipenv.
 
-### Docker (recommended)
+
+### Makefile
+
+*For ease of use, a Makefile has been included to make the following operations (and more) as simple as possible.*
+
+```bash
+% make init # install only packages to run flask app, uses pipenv
+
+% make init-dev # install packages for flask app, testing, and notebook.ipynb
+
+% make test # run test suite
+
+% make flask # run flask application locally
+
+% make docker_build # build Docker image
+
+% make docker_run # run Docker image
+```
+
+### Docker
 
 While in the main project directory (`nba_game_predictor`), run the following command in your shell to build an image:
 
@@ -86,7 +115,7 @@ If you are only using the notebook, you are done!
 To run the flask app, you will need to add the FLASK_APP environment variable:
 
 ```bash
-% export FLASK_APP=predictor_app
+% export FLASK_APP=nba_game_predictor
 ```
 
 and run flask:
