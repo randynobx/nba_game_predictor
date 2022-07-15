@@ -9,7 +9,7 @@ RUN pip3 install -r requirements.txt
 
 COPY . .
 
-ENV FLASK_APP=predictor_app
+ENV FLASK_APP=nba_game_predictor
 
 EXPOSE 5000
 
