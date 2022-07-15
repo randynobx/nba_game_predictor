@@ -1,6 +1,6 @@
 '''Calculations Module'''
 
-import pickle as pk
+import pickle
 import pandas as pd
 
 def calc_fourfactors(boxscore: dict) -> dict:
@@ -56,8 +56,11 @@ def predict_winner(fourfactors_dict: dict) -> tuple:
         probability of predicted outcome occuring.
     '''
     # load model
-    with open('model.pickle', 'rb') as file:
-        model = pk.load(file)
+    try:
+        with open('nba_game_predictor/model.pickle', 'rb') as file:
+            model = pickle.load(file)
+    except FileNotFoundError:
+        return 'Prediction model is missing', -1
 
     # predict
     fourfactors_df = pd.DataFrame(fourfactors_dict, index=[0]).astype(float)
