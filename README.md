@@ -8,8 +8,6 @@ At the end of the day, basketball may be 'about getting buckets', but there is a
 
 Using these four factors, I've created a simple prediction app using the SK-Learn library and Flask to predict the winner of a given NBA basketball game given its final boxscore (without points).
 
-For instructions on how to run this project on your machine, please see the [Usage](#usage) section below.
-
 ---
 
 ### Contents
