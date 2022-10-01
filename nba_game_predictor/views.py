@@ -4,13 +4,16 @@ from .calculations import calc_fourfactors, predict_winner
 
 main = Blueprint('main', __name__)
 
+
 @main.route('/')
 def index():
     return redirect('/predict')
 
+
 @main.route('/predict')
 def predict():
     return render_template('predict.html')
+
 
 @main.route('/', methods=['POST'])
 @main.route('/predict', methods=['POST'])
@@ -34,9 +37,9 @@ def upload_and_predict():
         "a_orb": int(request.form.get("a_orb")),
         "a_tov": int(request.form.get("a_tov")),
         }
-    X = calc_fourfactors(box)
+    matrix = calc_fourfactors(box)
 
-    winner, proba = predict_winner(X)
+    winner, proba = predict_winner(matrix)
     return render_template('predict.html', predicted=winner, proba=proba)
 
 
@@ -44,9 +47,10 @@ def upload_and_predict():
 def about():
     return render_template('about.html')
 
+
 @main.route('/fourfactors_predict')
 def ff_predict():
-    X = {
+    matrix = {
             'h_efg': float(request.form.get('h_efg')),
             'h_tov': float(request.form.get('h_tov')),
             'h_drp': float(request.form.get('h_drp')),
@@ -56,5 +60,5 @@ def ff_predict():
             'a_drp': float(request.form.get('a_drp')),
             'a_ftr': float(request.form.get('a_ftr'))
         }
-    winner, proba = predict_winner(X)
+    winner, proba = predict_winner(matrix)
     return render_template('predict.html', predicted=winner, proba=proba)

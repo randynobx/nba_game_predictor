@@ -1,13 +1,8 @@
 '''Test module'''
 
 from nba_game_predictor import create_app
+from test_assets import test_boxscore
 
-test_boxscore = {
-    'h_fgm': 40, 'h_fga': 80, 'h_3pm': 13,'h_ftm': 9,
-    'h_fta': 17, 'h_trb': 42, 'h_orb': 10, 'h_tov': 17,
-    'a_fgm': 37, 'a_fga': 90, 'a_3pm': 8, 'a_ftm': 27,
-    'a_fta': 33, 'a_trb': 48, 'a_orb': 16, 'a_tov': 9
-}
 
 class TestViews:
     '''Tests for views.py'''

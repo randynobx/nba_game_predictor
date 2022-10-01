@@ -1,29 +1,28 @@
-'''Calculations Module'''
+"""Calculations Module"""
 
 import pickle
 import pandas as pd
 
+
 def calc_fourfactors(boxscore: dict) -> dict:
-    '''Calculate four factors for each team
+    """Calculate four factors for each team
 
     Args:
-        boxscore (dict): dictionary of relevant boxscore data. Requires the following
-        keys: ['_fgm', '_3pm', '_fga', '_tov', '_ftm', '_fta', '_trb', '_orb']
-        prefixed with 'h' and 'a' for home and away teams respectively.
+        boxscore (dict): dictionary of relevant boxscore data. Requires the following keys ->
+         ['_fgm', '_3pm', '_fga', '_tov', '_ftm', '_fta', '_trb', '_orb']
+         prefixed with 'h' and 'a' for home and away teams respectively.
 
     Returns:
         four factors (dict): dictionary of four factors values calculated from
         given boxscore
-    '''
+    """
     fourfactors = {}
     h_dreb = boxscore['h_trb'] - boxscore['h_orb']
     a_dreb = boxscore['a_trb'] - boxscore['a_orb']
 
     # Shooting : (FG + 0.5 * 3FG) / FGA
-    fourfactors['h_efg'] = (boxscore['h_fgm'] + 0.5 * boxscore['h_3pm'])\
-                            / boxscore['h_fga']
-    fourfactors['a_efg'] = (boxscore['a_fgm'] + 0.5 * boxscore['a_3pm'])\
-                            / boxscore['a_fga']
+    fourfactors['h_efg'] = (boxscore['h_fgm'] + 0.5 * boxscore['h_3pm']) / boxscore['h_fga']
+    fourfactors['a_efg'] = (boxscore['a_fgm'] + 0.5 * boxscore['a_3pm']) / boxscore['a_fga']
 
     # Turnovers : TOV / (FGA + 0.44 * FTA + TOV)
     fourfactors['h_tov'] = boxscore['h_tov'] / (boxscore['h_fga']
@@ -43,8 +42,9 @@ def calc_fourfactors(boxscore: dict) -> dict:
 
     return fourfactors
 
+
 def predict_winner(fourfactors_dict: dict) -> tuple:
-    '''Return winner of game and probability of expected result
+    """Return winner of game and probability of expected result
 
     Args:
         fourfactors_dict (dict): dictionary of four factors values (floats), with the
@@ -53,8 +53,8 @@ def predict_winner(fourfactors_dict: dict) -> tuple:
 
     Returns:
         winner, proba (str, float): Tuple of the projected winner and model's
-        probability of predicted outcome occuring.
-    '''
+        probability of predicted outcome occurring.
+    """
     # load model
     try:
         with open('nba_game_predictor/model.pickle', 'rb') as file:
@@ -64,7 +64,7 @@ def predict_winner(fourfactors_dict: dict) -> tuple:
 
     # predict
     fourfactors_df = pd.DataFrame(fourfactors_dict, index=[0]).astype(float)
-    result =  model.predict(fourfactors_df)[0]
+    result = model.predict(fourfactors_df)[0]
     proba = round(model.predict_proba(fourfactors_df).max(), 3)
     if result == 1:
         return 'Home team', proba
